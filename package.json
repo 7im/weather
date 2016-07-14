@@ -82,8 +82,9 @@
   "version": "1.0.0",
   "engines": {
     "node": ">=4.4.5 <6",
-    "npm": ">=3.3 <4"
+    "npm": ">=3.10.5 <4"
   },
+  "repository": "https://github.com/7im/weather.git",
   "main": "server.js",
   "keywords": [],
   "author": "Tim Leung",
