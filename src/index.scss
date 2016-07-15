@@ -1,3 +1,10 @@
 body {
   background-color: lightgrey;
 }
+
+a[ng-click] {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}

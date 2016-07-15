@@ -2,7 +2,7 @@
 
 import * as angular from 'angular';
 import 'angular-mocks';
-import WeatherData from './weatherData.service';
+import {WeatherData} from './weatherData.service';
 import {WEATHER_ENDPOINT} from '../constants/weatherDataConfig';
 
 describe('WeatherData service', () => {
@@ -12,6 +12,10 @@ describe('WeatherData service', () => {
       .service('WeatherData', WeatherData);
     angular.mock.module('WeatherData');
   });
+  afterEach(inject(($httpBackend: ng.IHttpBackendService) => {
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
+  }));
 
   it('should have these methods', angular.mock.inject((WeatherData: WeatherData) => {
     expect(WeatherData).toHaveMethod('searchByCity');
@@ -21,7 +25,8 @@ describe('WeatherData service', () => {
     WeatherData: WeatherData,
     $httpBackend: ng.IHttpBackendService
   ) => {
-    $httpBackend.expect('GET', `${WEATHER_ENDPOINT}&q=city`);
+    $httpBackend.expect('GET', `${WEATHER_ENDPOINT}&q=city`)
+      .respond(200, {result: 'weather'});
     WeatherData.searchByCity('city');
     $httpBackend.flush();
   }));

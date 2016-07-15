@@ -1,0 +1,22 @@
+<div class="app-container">
+  <h2>Weather forecast for London</h2>
+  <div>
+    Last updated: {{ $ctrl.currentTime | date:'yyyy-mm-dd h:mm a' }}
+    <a ng-click="$ctrl.updateWeatherForecast()" class="fa fa-refresh">Refresh</a>
+  </div>
+  <div class="hourly-list">
+    <div class="list-item"
+    ng-repeat="forecast in $ctrl.forecasts">
+      <span class="time">{{ forecast.time | date:'h a' }}</span>
+      <span class="weather">
+        <img ng-src="http://openweathermap.org/img/w/{{ forecast.weather.icon }}.png" />
+        {{ forecast.weather.main }}
+      </span>
+      <span class="temperature">{{ forecast.temp | number:0 }}&deg;</span>
+<!--       <span>Low: {{ forecast.temp_min }}</span>
+      <span>High: {{ forecast.temp_max }}</span>
+      <span>Pressure: {{ forecast.pressure }}</span>
+      <span>Humidity: {{ forecast.humidity }}</span> -->
+    </div>
+  </div>
+</div>

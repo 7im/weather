@@ -4,3 +4,4 @@
 /// <reference path="globals/jasmine-expect/index.d.ts" />
 /// <reference path="globals/jasmine/index.d.ts" />
 /// <reference path="globals/jquery/index.d.ts" />
+/// <reference path="modules/lodash/index.d.ts" />
