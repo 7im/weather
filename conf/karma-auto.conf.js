@@ -14,6 +14,7 @@ module.exports = function (config) {
     ],
     frameworks: [
       'jasmine',
+      'jasmine-matchers',
       'es6-shim'
     ],
     files: [
@@ -43,6 +44,7 @@ module.exports = function (config) {
     },
     plugins: [
       require('karma-jasmine'),
+      require('karma-jasmine-matchers'),
       require('karma-junit-reporter'),
       require('karma-coverage'),
       require('karma-phantomjs-launcher'),
