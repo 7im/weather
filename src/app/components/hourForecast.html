@@ -1,5 +1,6 @@
 <div class="hourly-forecast">
     <wa-city-selector city="$ctrl.city"></wa-city-selector>
+    <wa-unit-switch unit="$ctrl.unit"></wa-unit-switch>
     <span class="forecast-status">
         Last updated: {{ $ctrl.currentTime | date:'yyyy-mm-dd h:mm a' }}
         <button ng-click="$ctrl.updateWeatherForecast()">
@@ -14,10 +15,8 @@
         <img ng-src="http://openweathermap.org/img/w/{{ forecast.weather.icon }}.png" />
         {{ forecast.weather.main }}
         </span>
-        <span class="temperature">{{ forecast.temp | number:0 }}&deg;</span>
-        <span>High: {{ forecast.temp_max }}&deg;</span>
-        <span>Low: {{ forecast.temp_min }}&deg;</span>
-<!--             <span>Pressure: {{ forecast.pressure }}</span>
-      <span>Humidity: {{ forecast.humidity }}</span> -->
+        <span class="temperature">{{ forecast.temp | number:0 }}&deg;{{ $ctrl.displayUnit() }}</span>
+        <span>High: {{ forecast.temp_max }}&deg;{{ $ctrl.displayUnit() }}</span>
+        <span>Low: {{ forecast.temp_min }}&deg;{{ $ctrl.displayUnit() }}</span>
     </div>
 </div>

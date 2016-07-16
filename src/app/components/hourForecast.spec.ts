@@ -34,12 +34,12 @@ describe('hourForecast component', () => {
   }));
 
   it('should inject weather data service and call search by city method', () => {
-    expect(this.mockSearchByCity).toHaveBeenCalledWith(defaultCity);
+    expect(this.mockSearchByCity).toHaveBeenCalledWith(defaultCity, undefined);
   });
 
   it('should have updateWeatherForecast method to reload from source', () => {
     expect(this.mockSearchByCity.calls.count()).toBe(1);
-    this.component.updateWeatherForecast('city');
+    this.component.updateWeatherForecast();
     expect(this.mockSearchByCity.calls.count()).toBe(2);
   });
 

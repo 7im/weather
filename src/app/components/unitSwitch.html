@@ -1,0 +1,9 @@
+<span class="unit-switch">
+  <label ng-repeat="unit in $ctrl.units"
+    for="unit-{{ $index }}">
+    <input type="radio" id="unit-{{ $index }}"
+      ng-value="unit.value"
+      ng-model="$ctrl.unit" />
+    {{ unit.label }}
+  </label>
+</span>

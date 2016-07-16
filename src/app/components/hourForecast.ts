@@ -4,17 +4,18 @@ import './hourForecast.scss';
 
 class HourForecastController {
   public city: string;
+  public unit: string;
   public currentTime: Date;
   public forecasts: IWeatherForecast[];
 
   /** @ngInject */
   constructor($scope: ng.IScope, private waWeatherDataService: WeatherData) {
-    $scope.$watch('$ctrl.city', (city: string) => this.updateWeatherForecast(city));
+    $scope.$watchGroup(['$ctrl.city', '$ctrl.unit'], () => this.updateWeatherForecast());
   }
 
-  updateWeatherForecast(city: string) {
-    if (!city) { return; }
-    this.waWeatherDataService.searchByCity(city)
+  updateWeatherForecast() {
+    if (!this.city) { return; }
+    this.waWeatherDataService.searchByCity(this.city, this.unit)
       .then((forecasts: IWeatherForecast[]) => {
         this.forecasts = forecasts;
         this.currentTime = new Date();
@@ -22,6 +23,13 @@ class HourForecastController {
       .catch((err) => {
         // todo: alert user
       });
+  }
+  displayUnit() {
+    const unitMap = {
+      metric: 'C',
+      imperial: 'F'
+    };
+    return unitMap[this.unit];
   }
 }
 

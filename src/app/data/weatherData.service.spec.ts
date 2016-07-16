@@ -25,7 +25,7 @@ describe('WeatherData service', () => {
     WeatherData: WeatherData,
     $httpBackend: ng.IHttpBackendService
   ) => {
-    $httpBackend.expect('GET', `${WEATHER_ENDPOINT}&q=city`)
+    $httpBackend.expect('GET', `${WEATHER_ENDPOINT}&units=metric&q=city`)
       .respond(200, {result: 'weather'});
     WeatherData.searchByCity('city');
     $httpBackend.flush();

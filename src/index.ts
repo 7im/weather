@@ -9,6 +9,7 @@ import routesConfig from './routes';
 import {container} from './app/container'
 import {hourForecast} from './app/components/hourForecast'
 import {citySelector} from './app/components/citySelector'
+import {unitSwitch} from './app/components/unitSwitch'
 import {WeatherData} from './app/data/weatherData.service'
 
 import './index.scss';
@@ -21,4 +22,5 @@ angular
   .component('waContainer', container)
   .component('waHourForecast', hourForecast)
   .component('waCitySelector', citySelector)
+  .component('waUnitSwitch', unitSwitch)
   .service('waWeatherDataService', WeatherData);

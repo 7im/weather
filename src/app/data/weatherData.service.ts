@@ -1,14 +1,12 @@
 /// <reference path="../../../typings/index.d.ts" />
 
-import {WEATHER_ENDPOINT} from '../constants/weatherDataConfig';
+import {WEATHER_ENDPOINT, UNITS} from '../constants/weatherDataConfig';
 import {map} from 'lodash';
 
 export interface IWeatherForecast {
     temp: number;
     temp_min: number;
     temp_max: number;
-    pressure: number;
-    humidity: number;
     weather: {
         main: string;
         description: string;
@@ -21,8 +19,8 @@ export class WeatherData {
     /** @ngInject */
     constructor(private $http: ng.IHttpService) {}
 
-    searchByCity(city: string) {
-        var endpoint = `${WEATHER_ENDPOINT}&q=${city}`;
+    searchByCity(city: string, unit?: string) {
+        var endpoint = `${WEATHER_ENDPOINT}&units=${unit || UNITS[0]}&q=${city}`;
         return this.$http.get(endpoint).then((res: any) => {
             return res.data && map(res.data.list, (forecast: any) => {
                 return {

@@ -22,13 +22,9 @@ Heroku will listen to any commit to master branch on https://github.com/7im/weat
 On successful build, the latest code will be deployed to production site - https://weather-app-test.herokuapp.com/
 
 
-## TODO
-
-- Add detail view
-- unit switch
-- Display data in different views: now, hourly, daily
-
 ## Nice to have
+- Add detail view
+- Display data in different views: now, hourly, daily
 - add city search input with autocomplete
 - geo location api to locate user
 - web responsive layout
