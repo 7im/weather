@@ -16,6 +16,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.(css|scss)$/,
+        loaders: [
+          'style',
+          'css',
+          'sass',
+          'postcss'
+        ]
+      },
+      {
         test: /\.ts$/,
         exclude: /node_modules/,
         loaders: [

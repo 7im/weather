@@ -24,17 +24,12 @@ On successful build, the latest code will be deployed to production site - https
 
 ## TODO
 
-- Create weather endpoint service
-- Decode weather json
-- Create options for London, New York, Hong Kong
-- Display data
-- weather icons
+- Add detail view
 - unit switch
 - Display data in different views: now, hourly, daily
-- add city search input with autocomplete
-
 
 ## Nice to have
+- add city search input with autocomplete
 - geo location api to locate user
 - web responsive layout
 - localisation

@@ -1,0 +1,28 @@
+.hourly-forecast {
+  .forecast-status {
+    float: right;
+  }
+  .list-item {
+    clear: both;
+    padding: 6px;
+    border: 1px solid #666;
+    border-radius: 1px;
+    box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.75);
+  }
+  .time,
+  .weather,
+  .weather img,
+  .temperature {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .time {
+    font-weight: bold;
+    width: 60px;
+  }
+  .temperature {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 28px;
+  }
+}
