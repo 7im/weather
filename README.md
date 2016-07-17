@@ -19,7 +19,7 @@ Npm version: >3
 
 Heroku will listen to any commit to master branch on https://github.com/7im/weather.git
 
-On successful build, the latest code will be deployed to production site - https://weather-app-test.herokuapp.com/
+On successful build, the latest code will be deployed to production site - http://weather-app-test.herokuapp.com/
 
 
 ## Nice to have
