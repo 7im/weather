@@ -8,15 +8,26 @@
           Refresh
        </button>
     </span>
-    <div class="list-item"
-    ng-repeat="forecast in $ctrl.forecasts">
-        <span class="time">{{ forecast.time | date:'h a' }}</span>
-        <span class="weather">
-        <img ng-src="http://openweathermap.org/img/w/{{ forecast.weather.icon }}.png" />
-        {{ forecast.weather.main }}
-        </span>
-        <span class="temperature">{{ forecast.temp | number:0 }}&deg;{{ $ctrl.displayUnit() }}</span>
-        <span>High: {{ forecast.temp_max }}&deg;{{ $ctrl.displayUnit() }}</span>
-        <span>Low: {{ forecast.temp_min }}&deg;{{ $ctrl.displayUnit() }}</span>
+    <div ng-repeat="(date, forecasts) in $ctrl.forecasts">
+        <h3>{{ date }}</h3>
+        <div class="list-item"
+        ng-repeat="forecast in forecasts">
+            <span class="time">{{ forecast.time | date:'h a' }}</span>
+            <span class="weather">
+                <img ng-src="http://openweathermap.org/img/w/{{ forecast.weather.icon }}.png" />
+                {{ forecast.weather.main }}
+            </span>
+            <span class="temperature">
+                {{ forecast.temp | number:0 }}&deg;{{ $ctrl.displayUnit() }}
+            </span>
+            <span>
+                <fa name="arrow-up" alt="High"></fa>
+                {{ forecast.temp_max }}&deg;{{ $ctrl.displayUnit() }}
+            </span>
+            <span>
+                <fa name="arrow-down" alt="Low"></fa>
+                {{ forecast.temp_min }}&deg;{{ $ctrl.displayUnit() }}
+            </span>
+        </div>
     </div>
 </div>

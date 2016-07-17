@@ -23,14 +23,13 @@ On successful build, the latest code will be deployed to production site - https
 
 
 ## Nice to have
-- Add detail view
-- Display data in different views: now, hourly, daily
-- add city search input with autocomplete
-- geo location api to locate user
-- web responsive layout
-- localisation
-- charting for weather trend
-- git pre-commit hook to capture build failures
-- protractor for e2e tests
-- cache endpoint request result on middleware server
-- create mongodb and endpoint for whole city list json
+- Add forecast detail view
+- Use addtional API to display forecast in different views: current, daily, map
+- Replace city selector with city search input with autocomplete
+- Use geo location api to locate user
+- Web responsive layout
+- Add charting for weather trend
+- Add git pre-commit hook to capture build failures
+- Use protractor for e2e tests
+- Cache API request results on server
+- Create mongodb and endpoint to query entire city list json

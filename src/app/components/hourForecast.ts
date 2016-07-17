@@ -1,12 +1,15 @@
 import {IWeatherForecast, WeatherData} from '../data/weatherData.service';
-
 import './hourForecast.scss';
+
+interface IFiveDaysForecast {
+  [date: string]: IWeatherForecast[];
+}
 
 class HourForecastController {
   public city: string;
   public unit: string;
   public currentTime: Date;
-  public forecasts: IWeatherForecast[];
+  public forecasts: IFiveDaysForecast;
 
   /** @ngInject */
   constructor($scope: ng.IScope, private waWeatherDataService: WeatherData) {
@@ -16,7 +19,7 @@ class HourForecastController {
   updateWeatherForecast() {
     if (!this.city) { return; }
     this.waWeatherDataService.searchByCity(this.city, this.unit)
-      .then((forecasts: IWeatherForecast[]) => {
+      .then((forecasts: IFiveDaysForecast) => {
         this.forecasts = forecasts;
         this.currentTime = new Date();
       })
